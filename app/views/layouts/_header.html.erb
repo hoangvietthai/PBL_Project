@@ -9,13 +9,22 @@
           <li><%= link_to "助けて", help_path%></li>
         </ul>
       </nav>
-
+     <%if !user_signed_in? %>
       <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
         <div class="ml-auto">
         </div>
-        <button class="btn btn-primary border-width-2 d-none d-lg-inline-block">ログイン</button>
+        <%= button_to "ログイン", new_user_session_path,
+                      :class => "btn btn-primary bo-2 d-none d-lg-inline-block"%>
       </div>
-
+      <% else %>
+        <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
+          <div class="ml-auto">
+          </div>
+          <button class="btn btn-primary border-width-2 d-none d-lg-inline-block"><%= current_user.email %></button>
+          <%= button_to "ログアウト", destroy_user_session_path,
+                        :class => "btn btn-primary bo-2 d-none d-lg-inline-block",method: :delete %>
+        </div>
+      <% end %>>
     </div>
   </div>
 </header>
