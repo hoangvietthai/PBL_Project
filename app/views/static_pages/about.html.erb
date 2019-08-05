@@ -1,0 +1,79 @@
+<body id="top">
+<div class="site-wrap">
+  <!-- HOME -->
+  <section class="home-section section-hero inner-page overlay bg-image"
+           style="background: url(<%= asset_path 'hero_1.jpg' %>);" id="home-section">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-12">
+          <div class="mb-5 text-center">
+            <h1 class="text-white font-weight-bold">私達の情報</h1>
+            <p>サイトであなたの夢の仕事を見つけましょ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="site-section pb-0">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" class="block__96788">
+            <%= image_tag 'team.jpg', :class => "img-fluid img-shadow"%>
+          </a>
+        </div>
+        <div class="col-lg-5 ml-auto">
+          <h2 class="section-title mb-3">チーム刺身 - ヒーロー</h2>
+          <p class="lead">私達はハノイ工科大学と芝浦大学からの優秀な学生になりました。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="site-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center" data-aos="fade">
+          <h2 class="section-title mb-3">チームのメンバー</h2>
+        </div>
+      </div>
+
+      <div class="row align-items-center block__69944">
+
+        <div class="col-md-6">
+          <%= image_tag 'thai.jpg',size: "450x350", :class => "img-fluid mb-4 rounded"%>
+          <h3>タイ</h3>
+          <p class="text-muted">リーダ</p>
+          <p>ハノイ工科大学の学生</p>
+        </div>
+
+        <div class="col-md-6 order-md-2">
+          <%= image_tag 'taichi.jpg', size: "450x350", :class => "img-fluid mb-4 rounded"%>
+          <h3>タイチ</h3>
+          <p class="text-muted">副リーダ</p>
+          <p>芝浦大学の学生</p>
+        </div>
+
+        <div class="col-md-6 order-md-2">
+          <%= image_tag 'ki.jpg', size: "450x350", :class => "img-fluid mb-4 rounded"%>
+          <h3>リュウキ</h3>
+          <p class="text-muted">メンバー</p>
+          <p>芝浦大学の学生</p>
+        </div>
+
+        <div class="col-md-6 order-md-2">
+          <%= image_tag 'dan.jpg', size: "450x350", :class => "img-fluid mb-4 rounded"%>
+          <h3>ダン</h3>
+          <p class="text-muted">メンバー</p>
+          <p>ハノイ工科大学の学生</p>
+        </div>
+
+      </div>
+      </div>
+  </section>
+</div>
+
+</body>
+
+</html>
