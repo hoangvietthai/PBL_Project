@@ -4,12 +4,16 @@ class JobsController < ApplicationController
   def new
      @job = Job.new
   end
+
+  def show
+    @job = Job.find params[:format]
+    render :show
+  end
   def create
     @job = current_user.jobs.build job_params
     @job.company_id = current_user.id
     @job.user_id = 0
      if @job.save
-
        redirect_to root_path
      else
        render :new

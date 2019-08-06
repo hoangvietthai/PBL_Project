@@ -843,7 +843,7 @@ h1, h2, h3, h4 {
 
 .section-hero, .section-hero > .container > .row {
   height: 100vh;
-  min-height: 900px; }
+  min-height: 400px; }
 
 .section-hero.inner-page, .section-hero.inner-page > .container > .row {
   height: auto;

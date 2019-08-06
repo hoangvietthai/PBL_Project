@@ -68,7 +68,7 @@
             <% else %>
               <span class="badge badge-primary px-2 py-1 mb-3"><%=@user.find(job.company_id).name%></span>
             <% end %>
-            <h2><%=job.title %></h2>
+            <h2><%= link_to job.title, jobs_path(job) %></h2>
             <p class="meta">Deadline: <%= job.deadline %></p>
           </div>
           <div class="col-md-2 text-left">
