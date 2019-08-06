@@ -9,6 +9,9 @@
           <%if user_signed_in? %>
             <li><%= link_to "プロフィール", edit_user_registration_path%></li>
             <% end  %>
+          <% if user_signed_in? && current_user.type_user==2 %>
+            <li><%= link_to "仕事を登録", new_jobs_path%></li>
+          <%end %>
           <li><%= link_to "お問い合わせ", help_path%></li>
         </ul>
       </nav>
