@@ -3,14 +3,49 @@
 # incrementally modify your database, and then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
+# database schema. If you need to new the application database on another
 # system, you should be using db:schema:load, not running all the migrations
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_05_162952) do
+ActiveRecord::Schema.define(version: 2019_08_06_034029) do
+
+  create_table "comments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "job_id"
+    t.integer "user_id"
+    t.string "content"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "job_id"
+    t.integer "student_id"
+    t.integer "status"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.integer "user_id"
+    t.integer "company_id"
+    t.date "deadline"
+    t.string "describe"
+    t.string "salary"
+    t.integer "typejob_id"
+    t.string "address"
+  end
+
+  create_table "typejobs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name_job"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -21,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_08_05_162952) do
     t.string "name"
     t.string "address"
     t.string "university"
+    t.string "major"
     t.string "image"
     t.integer "type_user"
     t.datetime "created_at", null: false

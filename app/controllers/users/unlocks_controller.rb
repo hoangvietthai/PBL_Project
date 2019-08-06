@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class Users::UnlocksController < Devise::UnlocksController
-  # GET /resource/unlock/new
+  # GET /jobs/unlock/new
   # def new
   #   super
   # end
 
-  # POST /resource/unlock
-  # def create
+  # POST /jobs/unlock
+  # def new
   #   super
   # end
 
-  # GET /resource/unlock?unlock_token=abcdef
+  # GET /jobs/unlock?unlock_token=abcdef
   # def show
   #   super
   # end
@@ -19,12 +19,12 @@ class Users::UnlocksController < Devise::UnlocksController
   # protected
 
   # The path used after sending unlock password instructions
-  # def after_sending_unlock_instructions_path_for(resource)
-  #   super(resource)
+  # def after_sending_unlock_instructions_path_for(jobs)
+  #   super(jobs)
   # end
 
-  # The path used after unlocking the resource
-  # def after_unlock_path_for(resource)
-  #   super(resource)
+  # The path used after unlocking the jobs
+  # def after_unlock_path_for(jobs)
+  #   super(jobs)
   # end
 end

@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  # before_action :configure_sign_in_params, only: [:new]
 
-  # GET /resource/sign_in
+  # GET /jobs/sign_in
   # def new
   #   super
   # end
 
-  # POST /resource/sign_in
-  # def create
+  # POST /jobs/sign_in
+  # def new
   #   super
   # end
 
-  # DELETE /resource/sign_out
+  # DELETE /jobs/sign_out
   # def destroy
   #   super
   # end

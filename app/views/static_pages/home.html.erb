@@ -47,136 +47,47 @@
 
       <div class="row mb-5 justify-content-center">
         <div class="col-md-7 text-center">
+          <%if user_signed_in? && current_user.type_user == 1 %>
+          <h2 class="section-title mb-2">あなたにおすすめの作業</h2>
+          <%else %>
           <h2 class="section-title mb-2">仕事一覧</h2>
+        　<% end %>
         </div>
       </div>
 
 
       <div class="mb-5">
+        <% @jobs.each do |job| %>
         <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
           <div class="col-md-2">
-            <a href="job-single.html"><img src="images/featured-listing-1.jpg" alt="Image" class="img-fluid"></a>
+            <%= image_tag 'it.jpg', size: "120x100" %>
           </div>
-          <div class="col-md-4">
-            <span class="badge badge-primary px-2 py-1 mb-3">Freelancer</span>
-            <h2><a href="job-single.html">Dropbox Product Designer</a> </h2>
-            <p class="meta">Publisher: <strong>John Stewart</strong> In: <strong>Design</strong></p>
-          </div>
-          <div class="col-md-3 text-left">
-            <h3>Melbourn</h3>
-            <span class="meta">Australia</span>
-          </div>
-          <div class="col-md-3 text-md-right">
-            <strong class="text-black">$60k &mdash; $100k</strong>
-          </div>
-        </div>
-
-        <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
           <div class="col-md-2">
-            <a href="job-single.html"><img src="images/featured-listing-2.jpg" alt="Image" class="img-fluid"></a>
+            <span class="badge badge-primary px-2 py-1 mb-3"><%=current_user.name%></span>
+            <h2><%=job.title %></h2>
+            <p class="meta">Deadline: <%= job.deadline %></p>
           </div>
-          <div class="col-md-4">
-            <span class="badge badge-warning px-2 py-1 mb-3">Full-time</span>
-            <h2><a href="job-single.html">Creative Director in Intercom</a> </h2>
-            <p class="meta">Publisher: <strong>John Stewart</strong> In: <strong>Design</strong></p>
+          <div class="col-md-2 text-left">
+            <h3><%= job.address %></h3>
+            <span class="meta">日本</span>
           </div>
-          <div class="col-md-3 text-left">
-            <h3>London</h3>
-            <span class="meta">United Kingdom</span>
+          <div class="col-md-2 text-left">
+            <% if job.typejob_id ==1 %> <h3>IT技術</h3> <%end %>
+            <% if job.typejob_id ==2 %> <h3>ビジネス</h3> <%end %>
+            <% if job.typejob_id ==3 %> <h3>教育</h3> <%end %>
           </div>
-          <div class="col-md-3 text-md-right">
-            <strong class="text-black">$60k &mdash; $100k</strong>
+          <div class="col-md-2s text-md-right">
+            <strong class="text-black"><%= job.salary %>VND</strong>
           </div>
-        </div>
-
-        <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
           <div class="col-md-2">
-            <a href="job-single.html"><img src="images/featured-listing-3.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-4">
-            <span class="badge badge-success px-2 py-1 mb-3">Part-time</span>
-            <h2><a href="job-single.html">FullStack Developer in Shopify</a> </h2>
-            <p class="meta">Publisher: <strong>John Stewart</strong> In: <strong>Design</strong></p>
-          </div>
-          <div class="col-md-3 text-left">
-            <h3>London</h3>
-            <span class="meta">United Kingdom</span>
-          </div>
-          <div class="col-md-3 text-md-right">
-            <strong class="text-black">$60k &mdash; $100k</strong>
+            <% if job.user_id!=0 %>
+              <span class="badge badge-success px-2 py-1 mb-3">担当している人がいる</span>
+            <%else %>
+              <span class="badge badge-danger px-2 py-1 mb-3">担当している人がいない</span>
+            <%end %>
           </div>
         </div>
-        <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
-          <div class="col-md-2">
-            <a href="job-single.html"><img src="images/featured-listing-4.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-4">
-            <span class="badge badge-primary px-2 py-1 mb-3">Freelancer</span>
-            <h2><a href="job-single.html">Dropbox Product Designer</a> </h2>
-            <p class="meta">Publisher: <strong>John Stewart</strong> In: <strong>Design</strong></p>
-          </div>
-          <div class="col-md-3 text-left">
-            <h3>Melbourn</h3>
-            <span class="meta">Australia</span>
-          </div>
-          <div class="col-md-3 text-md-right">
-            <strong class="text-black">$60k &mdash; $100k</strong>
-          </div>
-        </div>
-
-        <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
-          <div class="col-md-2">
-            <a href="job-single.html"><img src="images/featured-listing-5.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-4">
-            <span class="badge badge-warning px-2 py-1 mb-3">Full-time</span>
-            <h2><a href="job-single.html">Creative Director in Intercom</a> </h2>
-            <p class="meta">Publisher: <strong>John Stewart</strong> In: <strong>Design</strong></p>
-          </div>
-          <div class="col-md-3 text-left">
-            <h3>London</h3>
-            <span class="meta">United Kingdom</span>
-          </div>
-          <div class="col-md-3 text-md-right">
-            <strong class="text-black">$60k &mdash; $100k</strong>
-          </div>
-        </div>
-
-        <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
-          <div class="col-md-2">
-            <a href="job-single.html"><img src="images/featured-listing-4.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-4">
-            <span class="badge badge-success px-2 py-1 mb-3">Part-time</span>
-            <h2><a href="job-single.html">FullStack Developer in Shopify</a> </h2>
-            <p class="meta">Publisher: <strong>John Stewart</strong> In: <strong>Design</strong></p>
-          </div>
-          <div class="col-md-3 text-left">
-            <h3>London</h3>
-            <span class="meta">United Kingdom</span>
-          </div>
-          <div class="col-md-3 text-md-right">
-            <strong class="text-black">$60k &mdash; $100k</strong>
-          </div>
-        </div>
-
-        <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
-          <div class="col-md-2">
-            <a href="job-single.html"><img src="images/featured-listing-3.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-4">
-            <span class="badge badge-success px-2 py-1 mb-3">Part-time</span>
-            <h2><a href="job-single.html">FullStack Developer in Shopify</a> </h2>
-            <p class="meta">Publisher: <strong>John Stewart</strong> In: <strong>Design</strong></p>
-          </div>
-          <div class="col-md-3 text-left">
-            <h3>London</h3>
-            <span class="meta">United Kingdom</span>
-          </div>
-          <div class="col-md-3 text-md-right">
-            <strong class="text-black">$60k &mdash; $100k</strong>
-          </div>
-        </div>
+        <%end %>
 
       </div>
 

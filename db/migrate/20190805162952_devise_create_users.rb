@@ -16,6 +16,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string   :name
       t.string   :address
       t.string   :university
+      t.string   :major
       t.string   :image
       t.integer  :type_user
       ## Trackable

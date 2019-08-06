@@ -5,7 +5,7 @@
 <h2 class="text-white font-weight-bold">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "devise/shared/error_messages", jobs: resource %>
 
   <div class="field text-white font-weight-bold">
     <%= f.label :メール %><br />

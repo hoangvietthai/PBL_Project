@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @jobs = Job.where(company_id: current_user.id)
   end
 
   def help
@@ -7,7 +8,5 @@ class StaticPagesController < ApplicationController
 
   def about
   end
-  def profile
 
-  end
 end
