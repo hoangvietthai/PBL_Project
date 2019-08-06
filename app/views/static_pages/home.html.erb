@@ -51,7 +51,7 @@
           <h2 class="section-title mb-2">あなたにおすすめの作業</h2>
           <%else %>
           <h2 class="section-title mb-2">仕事一覧</h2>
-        　<% end %>
+          <% end %>
         </div>
       </div>
 
@@ -113,6 +113,12 @@
 
     </div>
   </section>
-
+<!--  企業の検索機能(表示はまだ)-->
+  <p>検索</p>
+  <%=form_with(url: root_path, local: true, class: "search-jobs-form") do |f| %>
+    <%= select_tag 'condition', options_for_select(@conditionOptions.invert)%>
+    <%= text_field_tag :searchText %>
+    <%=submit_tag '検索', :name => nil%>
+  <% end %>
 </div>
 </body>
