@@ -63,7 +63,11 @@
             <%= image_tag 'it.jpg', size: "120x100" %>
           </div>
           <div class="col-md-2">
+            <%if user_signed_in? %>
             <span class="badge badge-primary px-2 py-1 mb-3"><%=current_user.name%></span>
+            <% else %>
+              <span class="badge badge-primary px-2 py-1 mb-3"><%=@user.find(job.company_id).name%></span>
+            <% end %>
             <h2><%=job.title %></h2>
             <p class="meta">Deadline: <%= job.deadline %></p>
           </div>
@@ -108,36 +112,6 @@
       </div>
 
     </div>
-  </section>
-
-  <section class="bg-light pt-5 testimony-full">
-    <div class="owl-carousel single-carousel">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 mx-auto">
-            <img class="img-fluid mx-auto" src="images/person_1.jpg" alt="Image">
-            <blockquote>
-              <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
-              <p><cite> &mdash; Richard Anderson</cite></p>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 mx-auto">
-            <img class="img-fluid mx-auto" src="images/person_2.jpg" alt="Image">
-            <blockquote>
-              <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
-              <p><cite> &mdash; Chris Peters</cite></p>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
   </section>
 
 </div>
