@@ -8,7 +8,6 @@ class JobsController < ApplicationController
     @job = current_user.jobs.build job_params
     @job.company_id = current_user.id
     @job.user_id = 0
-    byebug
      if @job.save
 
        redirect_to root_path
