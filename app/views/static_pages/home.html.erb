@@ -90,6 +90,9 @@
               <span class="badge badge-danger px-2 py-1 mb-3">担当している人がいない</span>
             <%end %>
           </div>
+          <%if user_signed_in? && current_user.type_user==1%>
+            <button type="button" class="btn btn-success">申請</button>
+          <% end %>
         </div>
         <%end %>
 
