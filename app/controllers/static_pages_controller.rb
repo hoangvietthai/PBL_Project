@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  include Common
+
   def home
     if (current_user!=nil && current_user.type_user==2)
        @jobs = Job.where(company_id: current_user.id)
@@ -12,12 +14,14 @@ class StaticPagesController < ApplicationController
       @jobs = Job.where( user_id: 0)
       @user = User.all
     end
+    setBackgroundImage
   end
 
   def help
   end
 
   def about
+
   end
 
 end
