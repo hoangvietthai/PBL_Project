@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resource :jobs
   resource :contacts
   resource :comments
+  resource :admins
   get '/detail', to: 'jobs#detail'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
