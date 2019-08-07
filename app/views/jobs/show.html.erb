@@ -103,6 +103,26 @@
           </aside>
         </div>
       </div>
+      <hr>
+      <%if user_signed_in? && @job.user_id !=0%>
+      <%= form_for :comment, url: {action: :create, controller: :comments} do |f|%>
+         <%= f.text_area :content,  size: "48x5" %><br />
+        <%= f.hidden_field :job_id, value: @job.id %>
+        <%= f.submit %>
+      <% end %>
+      <hr>
+      <div style="color: #730E15">
+        <% @detail_comment.each do |comment| %>
+          <div style="color: #1e7e34">
+          <%= User.find(comment.user_id).name %>
+          </div>
+          <div style="padding-left: 40px">
+          <%= comment.content %>
+          </div>
+          <hr>
+        <% end %>
+      </div>
+      <%end %>
     </div>
   </section>
 

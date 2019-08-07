@@ -6,9 +6,15 @@ class JobsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @job = Job.find params[:format]
     @person = Contact.where(job_id: @job.id)
-    @check = Contact.where(job_id: @job.id, student_id: current_user.id)
+    if user_signed_in?
+      @check = Contact.where(job_id: @job.id, student_id: current_user.id)
+    else
+      @check =0
+    end
+    @detail_comment = Comment.where(job_id: @job.id)
     render :show
   end
   def create
