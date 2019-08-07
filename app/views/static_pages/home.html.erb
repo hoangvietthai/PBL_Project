@@ -9,7 +9,7 @@
             <h1 class="text-white font-weight-bold">サイトであなたの夢の仕事を見つけましょう</h1>
             <p>仕事を探すのが簡単になります</p>
           </div>
-          <%=form_with(url: root_path, local: true, class: "search-jobs-form") do |f| %>
+          <%=form_with(url: root_path, method: 'get',local: true, class: "search-jobs-form") do |f| %>
             <div class="row mb-5">
               <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                 <%= select_tag 'condition', options_for_select(@conditionOptions.invert), multiple: false , class: "form-control"%>

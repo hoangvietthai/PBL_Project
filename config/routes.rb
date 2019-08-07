@@ -10,6 +10,5 @@ Rails.application.routes.draw do
   get '/detail', to: 'jobs#detail'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
-  post '',         to:'static_pages#home'
   get  '/contacts', to: 'static_pages#contacts'
 end
