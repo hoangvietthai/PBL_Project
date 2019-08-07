@@ -18,7 +18,7 @@ class StaticPagesController < ApplicationController
     # 学生
     if (current_user!=nil && current_user.type_user==1)
       @a = Typejob.where(name_job: current_user.major).first
-      @jobs = Job.where(typejob_id: @a.id)
+      @jobs = Job.where(typejob_id: @a.id, user_id: 0)
       @user = User.all
       @conditionOptions = {"title": "仕事の名前", "deadline": "締切", "salary": "給料",  "address": "場所"}
       #POST処理
@@ -33,7 +33,7 @@ class StaticPagesController < ApplicationController
       end
       end
     if (current_user==nil)
-      @jobs = Job.all
+      @jobs = Job.where( user_id: 0)
       @user = User.all
       @conditionOptions = {"title": "仕事の名前、概要", "deadline": "締切", "salary": "給料", "typejob_id": "種類", "address": "場所"}
     end
