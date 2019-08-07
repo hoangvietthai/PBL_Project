@@ -7,6 +7,8 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find params[:format]
+    @person = Contact.where(job_id: @job.id)
+    @check = Contact.where(job_id: @job.id, student_id: current_user.id)
     render :show
   end
   def create
@@ -19,6 +21,20 @@ class JobsController < ApplicationController
        render :new
      end
   end
+
+  def detail
+     @user_job = Job.where(user_id: current_user.id)
+     @a = Contact.where(student_id: current_user.id)
+     @user_job_wait = []
+     @a.each do |i|
+         @b = Job.find(i.job_id)
+         if @b.user_id == 0
+           @user_job_wait.push @b
+         end
+     end
+     render :detail
+  end
+
   private
   def job_params
     params.require(:job).permit :title, :describe, :deadline,

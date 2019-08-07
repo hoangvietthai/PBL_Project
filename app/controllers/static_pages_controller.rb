@@ -5,11 +5,11 @@ class StaticPagesController < ApplicationController
     end
     if (current_user!=nil && current_user.type_user==1)
       @a = Typejob.where(name_job: current_user.major).first
-      @jobs = Job.where(typejob_id: @a.id)
+      @jobs = Job.where(typejob_id: @a.id, user_id: 0)
       @user = User.all
     end
     if (current_user==nil)
-      @jobs = Job.all
+      @jobs = Job.where( user_id: 0)
       @user = User.all
     end
   end

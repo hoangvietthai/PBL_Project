@@ -1,0 +1,140 @@
+<body id="top">
+<div class="site-wrap">
+  <!-- HOME -->
+  <section class="home-section section-hero overlay bg-image" style="background: url(<%= asset_path 'hero_1.jpg' %>);" id="home-section">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-12">
+          <div class="mb-5 text-center">
+            <h1 class="text-white font-weight-bold">サイトであなたの夢の仕事を見つけましょう</h1>
+            <p>仕事を探すのが簡単になります</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="site-section">
+    <div class="container">
+
+      <div class="row mb-5 justify-content-center">
+        <div class="col-md-7 text-center">
+            <h2 class="section-title mb-2">担当している仕事</h2>
+        </div>
+      </div>
+
+
+      <div class="mb-5">
+        <% @user_job.each do |job| %>
+          <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
+            <div class="col-md-2">
+              <%= image_tag 'it.jpg', size: "120x100" %>
+            </div>
+            <div class="col-md-2">
+              <%if user_signed_in? %>
+                <span class="badge badge-primary px-2 py-1 mb-3"><%=current_user.name%></span>
+              <% else %>
+                <span class="badge badge-primary px-2 py-1 mb-3"><%=@user.find(job.company_id).name%></span>
+              <% end %>
+              <h2><%= link_to job.title, jobs_path(job) %></h2>
+              <p class="meta">Deadline: <%= job.deadline %></p>
+            </div>
+            <div class="col-md-2 text-left">
+              <h3><%= job.address %></h3>
+              <span class="meta">日本</span>
+            </div>
+            <div class="col-md-2 text-left">
+              <% if job.typejob_id ==1 %> <h3>IT技術</h3> <%end %>
+              <% if job.typejob_id ==2 %> <h3>ビジネス</h3> <%end %>
+              <% if job.typejob_id ==3 %> <h3>教育</h3> <%end %>
+            </div>
+            <div class="col-md-2s text-md-right">
+              <strong class="text-black"><%= job.salary %>VND</strong>
+            </div>
+          </div>
+        <%end %>
+
+      </div>
+
+      <div class="row pagination-wrap">
+
+        <div class="col-md-6 text-center text-md-left">
+          <div class="custom-pagination ml-auto">
+            <a href="#" class="prev">Previous</a>
+            <div class="d-inline-block">
+              <a href="#" class="active">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+            </div>
+            <a href="#" class="next">Next</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="container">
+
+      <div class="row mb-5 justify-content-center">
+        <div class="col-md-7 text-center">
+          <h2 class="section-title mb-2">返事を待っている仕事</h2>
+        </div>
+      </div>
+
+
+      <div class="mb-5">
+        <% @user_job_wait.each do |job| %>
+          <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
+            <div class="col-md-2">
+              <%= image_tag 'it.jpg', size: "120x100" %>
+            </div>
+            <div class="col-md-2">
+              <%if user_signed_in? %>
+                <span class="badge badge-primary px-2 py-1 mb-3"><%=current_user.name%></span>
+              <% else %>
+                <span class="badge badge-primary px-2 py-1 mb-3"><%=@user.find(job.company_id).name%></span>
+              <% end %>
+              <h2><%= link_to job.title, jobs_path(job) %></h2>
+              <p class="meta">Deadline: <%= job.deadline %></p>
+            </div>
+            <div class="col-md-2 text-left">
+              <h3><%= job.address %></h3>
+              <span class="meta">日本</span>
+            </div>
+            <div class="col-md-2 text-left">
+              <% if job.typejob_id ==1 %> <h3>IT技術</h3> <%end %>
+              <% if job.typejob_id ==2 %> <h3>ビジネス</h3> <%end %>
+              <% if job.typejob_id ==3 %> <h3>教育</h3> <%end %>
+            </div>
+            <div class="col-md-2s text-md-right">
+              <strong class="text-black"><%= job.salary %>VND</strong>
+            </div>
+          </div>
+        <%end %>
+
+      </div>
+
+      <div class="row pagination-wrap">
+
+        <div class="col-md-6 text-center text-md-left">
+          <div class="custom-pagination ml-auto">
+            <a href="#" class="prev">Previous</a>
+            <div class="d-inline-block">
+              <a href="#" class="active">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+            </div>
+            <a href="#" class="next">Next</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </section>
+
+</div>
+</body>
