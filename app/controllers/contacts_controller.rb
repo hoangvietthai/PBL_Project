@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  include Common
   def new
     @contact = Contact.new
     @contact.job_id = params[:my_service][:job_id]

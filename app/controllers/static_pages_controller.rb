@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  include Common
+
   def home
     # 企業
     if (current_user!=nil && current_user.type_user==2)
@@ -37,13 +39,14 @@ class StaticPagesController < ApplicationController
       @user = User.all
       @conditionOptions = {"title": "仕事の名前、概要", "deadline": "締切", "salary": "給料", "typejob_id": "種類", "address": "場所"}
     end
-
+    setBackgroundImage
   end
 
   def help
   end
 
   def about
+
   end
 
 end
