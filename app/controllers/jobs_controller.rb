@@ -1,8 +1,10 @@
 class JobsController < ApplicationController
+  include Common
   before_action :authenticate_user!, :only => [:new]
   before_action :job_params, :only => [:create]
   def new
-     @job = Job.new
+    @job = Job.new
+    setBackgroundImage
   end
 
   def show
@@ -38,6 +40,7 @@ class JobsController < ApplicationController
            @user_job_wait.push @b
          end
      end
+     setBackgroundImage
      render :detail
   end
 
