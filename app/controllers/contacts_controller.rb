@@ -18,7 +18,6 @@ class ContactsController < ApplicationController
     @job = Job.find(@b)
     @job.user_id = @a
     @job.save
-    setBackgroundImage
     redirect_to request.referrer
   end
 end
