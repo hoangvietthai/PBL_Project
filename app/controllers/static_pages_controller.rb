@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
       #POST処理
       if request.post?
         if params[:searchText].present? and params[:condition].present?
-          @searchResult = @jobs.where(["#{params[:searchText]} like ?" , "%#{params[:condition]}%"])
+          @searchResult = @jobs.where(["#{params[:condition]} like ?" , "%#{params[:searchText]}%"])
           @searchMessage = "検索条件: \"" << @conditionOptions[:"#{params[:condition]}"] << "\" で \"#{params[:searchText]}\" を検索"
         else
           @searchResult = Job.where(company_id: current_user.id)
@@ -26,7 +26,7 @@ class StaticPagesController < ApplicationController
       #POST処理
       if request.post?
         if params[:searchText].present? and params[:condition].present?
-          @searchResult = @jobs.where(["#{params[:searchText]} like ?", "%#{params[:condition]}%"])
+          @searchResult = @jobs.where(["#{params[:condition]} like ?", "%#{params[:searchText]}%"])
           @searchMessage = "検索条件: \"" << @conditionOptions[:"#{params[:condition]}"] << "\" で \"#{params[:searchText]}\" を検索"
         else
           @searchResult = Job.where(company_id: current_user.id)

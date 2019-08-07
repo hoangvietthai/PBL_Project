@@ -9,33 +9,19 @@
             <h1 class="text-white font-weight-bold">サイトであなたの夢の仕事を見つけましょう</h1>
             <p>仕事を探すのが簡単になります</p>
           </div>
-          <form method="post" class="search-jobs-form">
+          <%=form_with(url: root_path, local: true, class: "search-jobs-form") do |f| %>
             <div class="row mb-5">
               <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <input type="text" class="form-control form-control-lg" placeholder="仕事の名前, キーワード...">
+                <%= select_tag 'condition', options_for_select(@conditionOptions.invert), multiple: false , class: "form-control"%>
               </div>
               <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <select class="form-control">
-                  <option>東京</option>
-                  <option>埼玉</option>
-                  <option>北海道</option>
-                  <option>愛知</option>
-                  <option>福岡</option>
-                  <option>大坂</option>
-                </select>
+                <%= text_field_tag :searchText , "", class: "form-control form-control-lg"%>
               </div>
               <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <select class="form-control">
-                  <option>パートタイム</option>
-                  <option>フルタイム</option>
-                  <option>フリーランサー</option>
-                </select>
-              </div>
-              <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search">探す</button>
+                <%=submit_tag '検索', :name => nil, class: "btn btn-primary btn-lg btn-block text-white btn-search"%>
               </div>
             </div>
-          </form>
+          <% end %>
         </div>
       </div>
     </div>
@@ -48,9 +34,13 @@
       <div class="row mb-5 justify-content-center">
         <div class="col-md-7 text-center">
           <%if user_signed_in? && current_user.type_user == 1 %>
-          <h2 class="section-title mb-2">あなたにおすすめの作業</h2>
-          <%else %>
-          <h2 class="section-title mb-2">仕事一覧</h2>
+            <h2 class="section-title mb-2">あなたにおすすめの作業</h2>
+          <%elsif !@searchResult.nil? and !@searchResult.nil?%>
+              <h2 class="section-title mb-2">検索結果</h2>
+              <h3><%=@searchMessage%></h3>
+            <%@jobs = @searchResult %>
+            <% else %>
+            <h2 class="section-title mb-2">仕事一覧</h2>
           <% end %>
         </div>
       </div>
@@ -115,12 +105,5 @@
 
     </div>
   </section>
-<!--  企業の検索機能(表示はまだ)-->
-  <p>検索</p>
-  <%=form_with(url: root_path, local: true, class: "search-jobs-form") do |f| %>
-    <%= select_tag 'condition', options_for_select(@conditionOptions.invert)%>
-    <%= text_field_tag :searchText %>
-    <%=submit_tag '検索', :name => nil%>
-  <% end %>
 </div>
 </body>
