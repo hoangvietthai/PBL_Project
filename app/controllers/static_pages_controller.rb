@@ -25,9 +25,9 @@ class StaticPagesController < ApplicationController
         if params[:searchText].present? and params[:condition].present?
           @searchResult = @jobs.where(["#{params[:condition]} like ?", "%#{params[:searchText]}%"])
           @searchMessage = "条件: \"" << @conditionOptions[:"#{params[:condition]}"] << "\" で \"#{params[:searchText]}\" を検索"
-        else
-          @searchResult = Job.where(company_id: current_user.id)
-          @searchMessage = "条件と検索ワードを設定してください。"
+        # else
+        #   @searchResult = Job.where(company_id: current_user.id)
+        #   @searchMessage = "条件と検索ワードを設定してください。"
         end
       end
     if (current_user==nil)
@@ -39,9 +39,9 @@ class StaticPagesController < ApplicationController
       if params[:searchText].present? and params[:condition].present?
         @searchResult = @jobs.where(["#{params[:condition]} like ?", "%#{params[:searchText]}%"])
         @searchMessage = "検索条件: \"" << @conditionOptions[:"#{params[:condition]}"] << "\" で \"#{params[:searchText]}\" を検索"
-      else
-        @searchResult = Job.where(company_id: current_user.id)
-        @searchMessage = "条件と検索ワードを設定してください。"
+      # else
+      #   @searchResult = Job.where(company_id: current_user.id)
+      #   @searchMessage = "条件と検索ワードを設定してください。"
       end
     end
     setBackgroundImage
