@@ -60,6 +60,7 @@
             <% end %>
             <h2><%= link_to job.title, jobs_path(job) %></h2>
             <p class="meta">Deadline: <%= job.deadline %></p>
+            <h2 style="font-size: 10px;"><%= link_to 'もっと見る', jobs_path(job) %></h2>
           </div>
           <div class="col-md-2 text-left">
             <h3><%= job.address %></h3>

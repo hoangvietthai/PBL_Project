@@ -1,1 +1,107 @@
-<div>asdada</div>
+<body id="top">
+<div class="site-wrap">
+  <!-- HOME -->
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-12">
+        </div>
+      </div>
+    </div>
+  <section class="site-section">
+    <div class="container">
+      <div class="row mb-5 justify-content-center">
+        <div class="text-center">
+          <h2 class="section-title mb-2">ユーザーの管理</h2>
+        </div>
+      </div>
+    </div>
+    <%= link_to "<button>作成</button>".html_safe, new_admins_path, class: "btn btn-success" %>
+    <div style="color: #1b1e21; float: right">
+    <%= form_for new_admins_path, :method => :get do |f| %>
+        <div class="actions">
+          <%= f.submit "検索" %>
+        </div>
+      <div class="field font-weight-bold">
+        <%= f.text_field :search%>
+      </div>
+    <% end %>
+    </div>
+    <hr>
+    <table class="table table-bordered " style="color: #1b1e21">
+      <tr id="customers">
+        <th>番号</th>
+        <th>名前</th>
+        <th>メール</th>
+        <th>大学（学生ユーザー）</th>
+        <th>やりたい仕事（学生ユーザー）</th>
+        <th>場所</th>
+        <th>ユーザー類</th>
+        <th>アクション</th>
+      </tr>
+      <% @user.each do |f| %>
+      <tr id="customers">
+      <td><%= f.id %></td>
+      <td><%= f.name %></td>
+      <td><%= f.email %></td>
+      <td><%= f.university %></td>
+      <td><%= f.major %></td>
+      <td><%= f.address %></td>
+      <td><%= f.type_user %></td>
+        <td>
+          <%= link_to "<button>削除</button>".html_safe, admins_path(:user => {:user_id=> f.id}), method: "delete" %>
+          <%= link_to "<button>編集</button>".html_safe, edit_admins_path(:user => {:user_id=> f.id}) %>
+        </td>
+      <% end  %>
+    </table>
+  </section>
+  <section class="site-section">
+    <div class="container">
+      <div class="row mb-5 justify-content-center">
+        <div class="text-center">
+          <h2 class="section-title mb-2">仕事の管理</h2>
+        </div>
+      </div>
+    </div>
+    <div style="color: #1b1e21; float: right">
+      <%= form_for new_admins_path, :method => :get do |f| %>
+        <div class="actions">
+          <%= f.submit "検索" %>
+        </div>
+        <div class="field font-weight-bold">
+          <%= f.text_field :search%>
+        </div>
+      <% end %>
+    </div>
+    <hr>
+    <table class="table table-bordered " style="color: #1b1e21">
+      <tr id="customers">
+        <th>番号</th>
+        <th>タイトル</th>
+        <th>企業</th>
+        <th>担当者</th>
+        <th>内容</th>
+        <th>コスト</th>
+        <th>期限</th>
+        <th>場所</th>
+        <th>仕事の種類</th>
+      </tr>
+      <% @job.each do |f| %>
+        <tr id="customers">
+          <td><%= f.id %></td>
+          <td><%= f.title %></td>
+          <td><%= User.find(f.company_id).name %></td>
+          <%if f.user_id!=0 %>
+              <td><%= User.find(f.user_id).name %></td>
+          <%else %>
+            <td>0</td>
+          <%end %>
+          <td><%= f.describe %></td>
+          <td><%= f.salary %></td>
+          <td><%= f.deadline %></td>
+          <td><%= f.address %></td>
+          <td><%= Typejob.find(f.typejob_id).name_job %></td>
+      <% end  %>
+    </table>
+  </section>
+</div>
+</body>

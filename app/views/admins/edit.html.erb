@@ -1,0 +1,51 @@
+<body id="top" style="background: url(<%= asset_path 'profile.jpg' %>)">
+<div class="site-wrap">
+  <!-- HOME -->
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-12">
+      </div>
+    </div>
+  </div>
+  <section class="site-section text-center" style="color: #1b1e21">
+    <div class="container">
+      <div class="row mb-5 justify-content-center">
+        <div class="text-center">
+          <h2 class="section-title mb-2">ユーザーの編集</h2>
+        </div>
+      </div>
+      <%= form_for user_path, :method => :post, :action => :user   do |f| %>
+        <div class="field font-weight-bold">
+          <%= f.label :メール %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", value: @user_fix.email %>
+        </div>
+
+        <div class="field font-weight-bold">
+          <%= f.label :名前 %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", value: @user_fix.name %>
+        </div>
+        <div class="fieldfont-weight-bold">
+          <%= f.label :アドレス %><br />
+          <%= f.text_field :address, autofocus: true, autocomplete: "address", value: @user_fix.address %>
+        </div>
+      <div class="field font-weight-bold">
+        <%= f.label :専門 %><br />
+        <%= f.text_field :major, autofocus: true, autocomplete: "major", value: @user_fix.major %>
+      </div>
+      <div class="field font-weight-bold">
+        <%= f.label :大学 %><br />
+        <%= f.text_field :university, autofocus: true, autocomplete: "university",value: @user_fix.university %>
+      </div>
+        <div class="field font-weight-bold">
+          <%= f.hidden_field :id_user, autofocus: true, autocomplete: "university", value: @user_fix.id %>
+        </div>
+        <hr>
+        <div class="actions">
+          <%= f.submit "編集" %>
+          <%= link_to "<button>戻る</button>".html_safe, admins_path %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>
+</body>
