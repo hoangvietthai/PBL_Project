@@ -14,13 +14,14 @@ ActiveRecord::Base.descendants.each { |model| model.reset_column_information }
 users_name = ["Dai", "Phan", "髙山", "拓海","Tu","Dang","Dan"]
 major_name =  ["", "IT", "ビジネス", "教育", "スポーツ", "発送"]
 address_name = ["東京","大阪","関東","北海道","九州","Ha Noi", "Ho Chi Minh"]
-university =["東京大学","筑波大学","東北大学","北海道大学","芝浦工業大学","HUST"]
+university_name =["東京大学","筑波大学","東北大学","北海道大学","芝浦工業大学","HUST"]
 10.times do |n|
   email_name = "user-#{n+100}@gmail.com"
   name =  users_name.sample
   password = "111222"
   major   = major_name.sample
   address = address_name.sample
+  university = university_name.sample
   type_user=1
   User.create!(
       name: name,
@@ -28,6 +29,7 @@ university =["東京大学","筑波大学","東北大学","北海道大学","芝
       major: major,
       password: password,
       email: email_name,
+      university: university,
       type_user:1
   )
 end
