@@ -66,7 +66,7 @@
             <% else %>
               <span class="badge badge-primary px-2 py-1 mb-3"><%=job.name%></span>
             <% end %>
-            <h2><%= link_to job.title, jobs_path(job) %></h2>
+            <h2><%= link_to job.title[0..20], jobs_path(job) %></h2>
             <p class="meta">Deadline: <%= job.deadline %></p>
             <h2 style="font-size: 10px;"><%= link_to 'もっと見る', jobs_path(job) %></h2>
           </div>
@@ -75,12 +75,14 @@
             <span class="meta">日本</span>
           </div>
           <div class="col-md-2 text-left">
-            <% if job.typejob_id ==1 %> <h3>IT技術</h3> <%end %>
-            <% if job.typejob_id ==2 %> <h3>ビジネス</h3> <%end %>
-            <% if job.typejob_id ==3 %> <h3>教育</h3> <%end %>
+            <% if job.typejob_id ==1 %> <h3>ビジネス</h3> <%end %>
+            <% if job.typejob_id ==2 %> <h3>IT</h3> <%end %>
+            <% if job.typejob_id ==3 %> <h3>スポーツ</h3> <%end %>
+            <% if job.typejob_id ==4 %> <h3>教育</h3> <%end %>
+            <% if job.typejob_id ==5 %> <h3>交通機関</h3> <%end %>
           </div>
           <div class="col-md-2s text-md-right">
-            <strong class="text-black"><%= job.salary %>VND</strong>
+            <strong class="text-black"><%= job.salary[0..10] %></strong>
           </div>
           <div class="col-md-2">
             <% if job.user_id!=0 %>
