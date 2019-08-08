@@ -1,7 +1,7 @@
 <header class="site-navbar mt-3">
   <div class="container-fluid">
     <div class="row align-items-center">
-      <div class="site-logo col-6"><a href="#">チーム刺身</a></div>
+      <div class="site-logo col-6"></div>
       <nav class="mx-auto site-navigation">
         <% if user_signed_in? && current_user.type_user ==0 %>
           <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
@@ -9,7 +9,6 @@
         <% else %>
         <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
           <li><%= link_to "TOPページ", root_path%></li>
-          <li><%= link_to "開発者の情報", about_path%></li>
           <%if user_signed_in? %>
             <li><%= link_to "プロフィール", edit_user_registration_path%></li>
             <% end  %>
@@ -19,7 +18,6 @@
           <% if user_signed_in? && current_user.type_user==1 %>
             <li><%= link_to "応募中", detail_path%></li>
           <%end %>
-          <li><%= link_to "お問い合わせ", help_path%></li>
         </ul>
         <%end  %>
       </nav>
@@ -38,7 +36,7 @@
           <%= button_to "ログアウト", destroy_user_session_path,
                         :class => "btn btn-primary bo-2 d-none d-lg-inline-block",method: :delete %>
         </div>
-      <% end %>>
+      <% end %>
     </div>
   </div>
 </header>

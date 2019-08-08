@@ -4,7 +4,7 @@ module Common extend ActiveSupport::Concern
     if  user_signed_in? && current_user.type_user==2
       @backgroundImage = 'company_top.jpg'
     else
-      @backgroundImage = 'hero_1.jpg'
+      @backgroundImage = 'student_top.jpg'
     end
   end
 end
