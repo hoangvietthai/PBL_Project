@@ -37,7 +37,7 @@
         <div class="col-md-7 text-center">
           <%if user_signed_in? && current_user.type_user == 1 %>
             <h2 class="section-title mb-2">あなたにおすすめの作業</h2>
-              <%if !@searchResult.nil? and !@searchResult.nil?%>
+              <%if !@searchMessage.nil?%>
                 <h2 class="section-title mb-2">検索結果</h2>
                 <h3><%=@searchMessage%></h3>
                 <%@jobs = @searchResult %>

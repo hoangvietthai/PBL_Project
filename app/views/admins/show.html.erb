@@ -17,15 +17,20 @@
     </div>
     <%= link_to "<button>作成</button>".html_safe, new_admins_path, class: "btn btn-success" %>
     <div style="color: #1b1e21; float: right">
-    <%= form_for new_admins_path, :method => :get do |f| %>
+      <%=form_with(url: admins_path, method: 'get',local: true, class: "search-jobs-form") do |f| %>
         <div class="actions">
-          <%= f.submit "検索" %>
+          <%= f.submit "検索" , name: "searchUser"%>
         </div>
-      <div class="field font-weight-bold">
-        <%= f.text_field :search%>
-      </div>
+        <div>
+          <%= select_tag 'conditionUser', options_for_select(@conditionOptionsUser.invert), multiple: false , class: "form-control"%>
+        </div>
+        <div class="field font-weight-bold">
+          <%= f.text_field :searchTextUser%>
+        </div>
     <% end %>
     </div>
+    <h5><%=@searchMessageUser %></h5>
+
     <hr>
     <table class="table table-bordered " style="color: #1b1e21">
       <tr id="customers">
@@ -63,15 +68,19 @@
       </div>
     </div>
     <div style="color: #1b1e21; float: right">
-      <%= form_for new_admins_path, :method => :get do |f| %>
+      <%=form_with(url: admins_path, method: 'get',local: true, class: "search-jobs-form") do |f| %>
         <div class="actions">
-          <%= f.submit "検索" %>
+          <%= f.submit "検索" , name:"searchJob"%>
+        </div>
+        <div>
+          <%= select_tag 'conditionJob', options_for_select(@conditionOptionsJob.invert), multiple: false , class: "form-control"%>
         </div>
         <div class="field font-weight-bold">
-          <%= f.text_field :search%>
+          <%= f.text_field :searchTextJob%>
         </div>
       <% end %>
     </div>
+    <h5><%=@searchMessageJob %></h5>
     <hr>
     <table class="table table-bordered " style="color: #1b1e21">
       <tr id="customers">
