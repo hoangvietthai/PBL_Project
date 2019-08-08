@@ -46,7 +46,15 @@
       <td><%= f.university %></td>
       <td><%= f.major %></td>
       <td><%= f.address %></td>
-      <td><%= f.type_user %></td>
+        <% if f.type_user ==0 %>
+          <td>アドミン</td>
+          <% end %>
+        <% if f.type_user ==1 %>
+          <td>学生</td>
+        <% end %>
+        <% if f.type_user ==2 %>
+          <td>企業</td>
+        <% end %>
         <td>
           <%= link_to "<button>削除</button>".html_safe, admins_path(:user => {:user_id=> f.id}), method: "delete" %>
           <%= link_to "<button>編集</button>".html_safe, edit_admins_path(:user => {:user_id=> f.id}) %>
