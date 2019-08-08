@@ -17,11 +17,11 @@ class AdminsController < ApplicationController
     @a.save
     @user = User.all
     @job = Job.all
-    render :show
+    redirect_to admins_path
   end
 
   def search
-    render :show
+    redirect_to admins_path
   end
 
   def show
@@ -49,7 +49,7 @@ class AdminsController < ApplicationController
     @a.destroy
     @user = User.all
     @job = Job.all
-    render :show
+    redirect_to admins_path
   end
 
   def edit
@@ -64,10 +64,11 @@ class AdminsController < ApplicationController
     @a.address = params["/user"][:address]
     @a.major = params["/user"][:major]
     @a.university = params["/user"][:university]
+    @a.major = params["/user"][:major]
     @a.save
     @user = User.all
     @job = Job.all
-    render :show
+    redirect_to admins_path
   end
 
   private

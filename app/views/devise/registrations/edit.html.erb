@@ -44,9 +44,13 @@
         </div>
         <% if current_user.type_user == 1 %>
         <div class="field  text-white font-weight-bold">
-          <%= f.label :大学 %><br />
+          <%= f.label :大学_学生に対して %><br />
           <%= f.text_field :university, autofocus: true %>
         </div>
+          <div class="field text-white font-weight-bold">
+            <%= f.label :専門_学生に対して %><br />
+            <%= f.select :major, {IT技術: "IT技術", ビジネス:"ビジネス", スポーツ:"スポーツ",教育:"教育",交通機関:"交通機関"}%>
+          </div>
           <% end  %>
   <div class="actions">
     <%= f.submit "Update" %>
