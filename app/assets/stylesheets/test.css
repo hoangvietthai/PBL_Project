@@ -26,6 +26,11 @@
     cursor: zoom-in;
 }
 
+.saika{
+    background-color: black;
+    opacity: 0.6;
+}
+
 #customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;

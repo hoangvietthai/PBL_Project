@@ -8,9 +8,9 @@
           </ul>
         <% else %>
         <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-          <li><%= link_to "TOPページ", root_path%></li>
+          <li class="sfont-weight-bold"><%= link_to "TOPページ", root_path%></li>
           <%if user_signed_in? %>
-            <li><%= link_to "プロフィール", edit_user_registration_path%></li>
+            <li style="color: #730E15"><%= link_to "プロフィール", edit_user_registration_path%></li>
             <% end  %>
           <% if user_signed_in? && current_user.type_user==2 %>
             <li><%= link_to "仕事を登録", new_jobs_path%></li>
