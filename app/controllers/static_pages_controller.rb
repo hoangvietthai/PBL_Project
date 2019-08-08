@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   def home
     # 企業
     if (current_user!=nil && current_user.type_user==2)
-       @jobs = Job.where(company_id: current_user.id)
+       @jobs = Job.joins("INNER JOIN users ON users.id = jobs.company_id").select("jobs.*, users.name").where(company_id: current_user.id)
        @conditionOptions = {"title": "仕事の名前", "deadline": "締切", "salary": "給料", "typejob_id": "種類", "address": "場所"}
       #GET処理
         if params[:searchText].present? and params[:condition].present?
@@ -18,8 +18,7 @@ class StaticPagesController < ApplicationController
     # 学生
     if (current_user!=nil && current_user.type_user==1)
       @a = Typejob.where(name_job: current_user.major).first
-      @jobs = Job.where(typejob_id: @a.id, user_id: 0)
-      @user = User.all
+      @jobs = Job.joins("INNER JOIN users ON users.id = jobs.company_id").select("jobs.*, users.name").where(typejob_id: @a.id, user_id: 0)
       @conditionOptions = {"title": "仕事の名前", "deadline": "締切", "salary": "給料",  "address": "場所"}
       #GET処理
         if params[:searchText].present? and params[:condition].present?
@@ -32,8 +31,7 @@ class StaticPagesController < ApplicationController
       end
     if (current_user==nil)
       # ログイン前
-      @jobs = Job.where(user_id: 0)
-      @user = User.all
+      @jobs = Job.joins("INNER JOIN users ON users.id = jobs.company_id").select("jobs.*, users.name").where(user_id: 0)
       @conditionOptions = {"title": "仕事の名前、概要", "deadline": "締切", "salary": "給料", "typejob_id": "種類", "address": "場所"}
       #GET処理
       if params[:searchText].present? and params[:condition].present?
