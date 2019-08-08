@@ -58,7 +58,7 @@
                 <% if @job.user_id==0 %>
                   <dd>担当している人がない</dd>
                 <%else %>
-                  <dd>担当している人がいる</dd>
+                  <dd><%= User.find(@job.user_id).name %> さん担当している</dd>
                 <% end %>
               </dl>
               <%if user_signed_in? && current_user.type_user==2%>
@@ -87,7 +87,7 @@
                 <%= link_to "申請", new_contacts_path(:my_service => { :job_id => @job.id, :user_id => current_user.id }), class: "btn btn-lg btn-primary text-uppercase" %>
               <%else %>
                   <% if current_user.type_user==1 %>
-                  <a href="#" class="btn btn-lg btn-primary text-uppercase"> 返事を待っている </a>
+                  <a href="#" class="btn btn-lg btn-success text-uppercase"> 返事を待っている </a>
                     <%end %>
                 <%end %>
               <%else%>

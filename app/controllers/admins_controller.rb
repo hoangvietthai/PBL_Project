@@ -35,6 +35,10 @@ class AdminsController < ApplicationController
 
   def destroy
     @a = User.find(params[:user][:user_id])
+    # @b.each do |f|
+    #   f.user_id = 0
+    #   f.save
+    # end
     @a.destroy
     @user = User.all
     @job = Job.all

@@ -16,7 +16,8 @@
 
           <div class="field text-white font-weight-bold">
             <%= f.label :期限 %><br />
-            <%= f.date_field :deadline%>
+            <%#= f.date_field :deadline%>
+            <%= f.datetime_select(:deadline, :default => { :hour => 23, :minute => 59 }) %>
           </div>
           <div class="field text-white font-weight-bold">
             <%= f.label :給与 %><br />円

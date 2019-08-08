@@ -42,10 +42,12 @@
           <%= f.label :アドレス %><br />
           <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
         </div>
+        <% if current_user.type_user == 1 %>
         <div class="field  text-white font-weight-bold">
           <%= f.label :大学 %><br />
           <%= f.text_field :university, autofocus: true %>
         </div>
+          <% end  %>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
