@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-
+  before_action :authenticate_user!
   def new
     @person = User.new
   end
