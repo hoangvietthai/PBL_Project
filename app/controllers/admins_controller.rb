@@ -14,6 +14,7 @@ class AdminsController < ApplicationController
     @a.university =params["/admins/new"][:university]
     @a.major =params["/admins/new"][:major]
     @a.type_user =params["/admins/new"][:type_user]
+    @a.pr =params["/admins/new"][:pr]
     @a.save
     @user = User.all
     @job = Job.all
@@ -65,6 +66,7 @@ class AdminsController < ApplicationController
     @a.major = params["/user"][:major]
     @a.university = params["/user"][:university]
     @a.major = params["/user"][:major]
+    @a.pr =params["/user"][:pr]
     @a.save
     @user = User.all
     @job = Job.all

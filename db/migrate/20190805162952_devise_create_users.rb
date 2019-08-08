@@ -18,6 +18,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string   :university
       t.string   :major
       t.string   :image
+      t.string   :pr
       t.integer  :type_user
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

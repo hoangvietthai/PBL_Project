@@ -2,34 +2,34 @@
   <div class="row align-items-center justify-content-center">
     <div class="col-md-12">
       <div class="mb-5 text-center" style="padding-top: 12%">
-        <h2 class="text-white font-weight-bold">仕事を登録</h2>
+        <h2 style="color: #1b1e21" class="font-weight-bold">仕事を登録</h2>
 
         <%= form_for @job do |f| %>
-          <div class="field text-white font-weight-bold">
+          <div style="color: #1b1e21" class="field font-weight-bold">
             <%= f.label :仕事のタイトル %><br />
             <%= f.text_field :title%>
           </div>
-          <div class="field text-white font-weight-bold">
+          <div style="color: #1b1e21" class="field font-weight-bold">
             <%= f.label :仕事の内容 %><br />
             <%= f.text_field :describe , class:"describe"%>
           </div>
 
-          <div class="field text-white font-weight-bold">
+          <div style="color: #1b1e21" class="field font-weight-bold">
             <%= f.label :期限 %><br />
             <%#= f.date_field :deadline%>
             <%= f.datetime_select(:deadline, :default => { :hour => 23, :minute => 59 }) %>
           </div>
-          <div class="field text-white font-weight-bold">
+          <div style="color: #1b1e21" class="field font-weight-bold">
             <%= f.label :給与 %><br />円
             <%= f.text_field :salary%>
           </div>
-          <div class="field text-white font-weight-bold">
+          <div style="color: #1b1e21" class="field font-weight-bold">
             <%= f.label :住所 %><br />
             <%= f.text_field :address%>
           </div>
-          <div class="field text-white font-weight-bold">
+          <div style="color: #1b1e21" class="field font-weight-bold">
             <%= f.label :仕事の種類 %><br />
-            <%= f.select :typejob_id, {IT技術:1, ビジネス:2, スポーツ:3,教育:3,交通機関:3}%>
+            <%= f.select :typejob_id, {IT:1, ビジネス:2, スポーツ:3,教育:3,交通機関:3}%>
           </div>
 
           <div class="actions text-white font-weight-bold">
