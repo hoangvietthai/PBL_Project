@@ -1,7 +1,6 @@
 class AdminsController < ApplicationController
-
+  before_action :authenticate_user!
   def new
-    byebug
     @person = User.new
   end
 
@@ -15,21 +14,21 @@ class AdminsController < ApplicationController
     @a.university =params["/admins/new"][:university]
     @a.major =params["/admins/new"][:major]
     @a.type_user =params["/admins/new"][:type_user]
+    @a.pr =params["/admins/new"][:pr]
     @a.save
     @user = User.all
     @job = Job.all
-    render :show
+    redirect_to admins_path
   end
 
   def search
-    byebug
-    render :show
+    redirect_to admins_path
   end
 
   def show
     @user = User.all
     @job = Job.all
-    @conditionOptionsUser = {"name": "学生、企業の名前", "mail": "メールアドレス", "university": "大学", "major": "種類", "address": "住所"}
+    @conditionOptionsUser = {"name": "学生、企業の名前", "email": "メールアドレス", "university": "大学", "major": "種類", "address": "住所"}
     @conditionOptionsJob  ={"title": "仕事の名前", "deadline": "締切", "salary": "給料", "typejob_id": "種類", "address": "場所"}
     if params[:searchUser].present? and params[:searchTextUser].present? and params[:conditionUser].present?
       @user = @user.where(["#{params[:conditionUser]} like ?" , "%#{params[:searchTextUser]}%"])
@@ -51,7 +50,7 @@ class AdminsController < ApplicationController
     @a.destroy
     @user = User.all
     @job = Job.all
-    render :show
+    redirect_to admins_path
   end
 
   def edit
@@ -66,10 +65,12 @@ class AdminsController < ApplicationController
     @a.address = params["/user"][:address]
     @a.major = params["/user"][:major]
     @a.university = params["/user"][:university]
+    @a.major = params["/user"][:major]
+    @a.pr =params["/user"][:pr]
     @a.save
     @user = User.all
     @job = Job.all
-    render :show
+    redirect_to admins_path
   end
 
   private

@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-md-12">
-          <div class="mb-5 text-center">
+          <div class="mb-5 text-center saika">
             <h1 class="text-white font-weight-bold">サイトであなたの夢の仕事を見つけましょう</h1>
             <p>仕事を探すのが簡単になります</p>
           </div>
@@ -82,7 +82,7 @@
             <% if job.typejob_id ==5 %> <h3>交通機関</h3> <%end %>
           </div>
           <div class="col-md-2s text-md-right">
-            <strong class="text-black"><%= job.salary[0..10] %></strong>
+            <strong class="text-black"><%= job.salary[0..8] %></strong>
           </div>
           <div class="col-md-2">
             <% if job.user_id!=0 %>

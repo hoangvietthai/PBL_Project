@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_034029) do
     t.string "university"
     t.string "major"
     t.string "image"
+    t.string "pr"
     t.integer "type_user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

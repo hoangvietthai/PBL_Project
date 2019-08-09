@@ -1,13 +1,13 @@
 <section class="home-section overlay bg-image" style="background: url(<%= asset_path @backgroundImage %>);" id="home-section">
 <div class="row align-items-center justify-content-center">
   <div class="col-md-12">
-    <div class="mb-5 text-center" style="padding-top: 12%">
-<h2 class="text-white font-weight-bold">Edit <%= resource_name.to_s.humanize %></h2>
+    <div class="mb-5 text-center" style="padding-top: 12%" style="color: #1d2124">
+<h2 style="color: #1d2124" class="font-weight-bold">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", jobs: resource %>
 
-  <div class="field text-white font-weight-bold">
+  <div class="field font-weight-bold" style="color: #1d2124">
     <%= f.label :メール %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -16,7 +16,7 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field text-white font-weight-bold">
+  <div style="color: #1d2124" class="field font-weight-bold">
     <%= f.label :パスワード %> <i>(変更しない場合は空白のままにします)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
@@ -25,16 +25,16 @@
     <% end %>
   </div>
 
-  <div class="field text-white font-weight-bold">
+  <div style="color: #1d2124" class="field font-weight-bold">
     <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field text-white font-weight-bold">
+  <div style="color: #1d2124" class="field font-weight-bold">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-        <div class="field text-white font-weight-bold">
+        <div style="color: #1d2124" class="field font-weight-bold">
           <%= f.label :名前 %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
@@ -47,13 +47,21 @@
           <%= f.label :大学 %><br />
           <%= f.text_field :university, autofocus: true %>
         </div>
+          <div class="field  text-white font-weight-bold">
+            <%= f.label :自己PR__学生に対して %><br />
+            <%= f.text_area :pr, autofocus: true %>
+          </div>
+          <div style="color: #1d2124" class="field font-weight-bold">
+            <%= f.label :専門_学生に対して %><br />
+            <%= f.select :major, {IT: "IT", ビジネス:"ビジネス", スポーツ:"スポーツ",教育:"教育",交通機関:"交通機関"}%>
+          </div>
           <% end  %>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
 
-<%= link_to "Back", :back, class: "text-white font-weight-bold" %>
+<%= link_to "Back", :back, class: "font-weight-bold" %>
     </div>
   </div>
 </div>

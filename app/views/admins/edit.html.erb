@@ -32,10 +32,24 @@
         <%= f.label :専門 %><br />
         <%= f.text_field :major, autofocus: true, autocomplete: "major", value: @user_fix.major %>
       </div>
-      <div class="field font-weight-bold">
-        <%= f.label :大学 %><br />
-        <%= f.text_field :university, autofocus: true, autocomplete: "university",value: @user_fix.university %>
-      </div>
+<!--      <div class="field font-weight-bold">-->
+<!--        <%#= f.label :大学 %><br />-->
+        <%#= f.text_field :university, autofocus: true, autocomplete: "university",value: @user_fix.university %>
+<!--      </div>-->
+        <% if @user_fix.type_user == 1 %>
+          <div class="field  text-white font-weight-bold">
+            <%= f.label :大学_学生に対して %><br />
+            <%= f.text_field :university, autofocus: true ,value: @user_fix.university %>
+          </div>
+          <div class="field  text-white font-weight-bold">
+            <%= f.label :自己PR__学生に対して %><br />
+            <%= f.text_area :pr, autofocus: true, value: @user_fix.pr  %>
+          </div>
+          <div class="field text-white font-weight-bold">
+            <%= f.label :専門_学生に対して %><br />
+            <%= f.select :major, {IT: "IT", ビジネス:"ビジネス", スポーツ:"スポーツ",教育:"教育",交通機関:"交通機関"}%>
+          </div>
+        <% end  %>
         <div class="field font-weight-bold">
           <%= f.hidden_field :id_user, autofocus: true, autocomplete: "university", value: @user_fix.id %>
         </div>
