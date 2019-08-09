@@ -34,28 +34,50 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-        <div style="color: #1d2124" class="field font-weight-bold">
+        <% if current_user.type_user==1 %>
+
+    <div style="color: #1d2124" class="field font-weight-bold">
           <%= f.label :名前 %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
         <div style="color: #1d2124" class="field font-weight-bold">
-          <%= f.label :アドレス %><br />
+          <%= f.label :住所 %><br />
           <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
         </div>
-        <% if current_user.type_user == 1 %>
-        <div style="color: #1d2124" class="field font-weight-bold">
-          <%= f.label :大学_学生に対して %><br />
-          <%= f.text_field :university, autofocus: true %>
-        </div>
-          <div class="field  text-white font-weight-bold">
-            <%= f.label :自己PR__学生に対して %><br />
+          <div style="color: #1d2124" class="field font-weight-bold">
+            <%= f.label :電話番号 %><br />
+            <%= f.text_field :phone_number, autofocus: true %>
+          </div>
+          <div style="color: #1d2124" class="field  font-weight-bold">
+            <%= f.label :大学（専門学校等） %><br />
+            <%= f.text_field :university, autofocus: true %>
+          </div>
+          <div style="color: #1d2124" class="field  font-weight-bold">
+            <%= f.label :自己PR%><br />
             <%= f.text_area :pr, autofocus: true %>
           </div>
           <div style="color: #1d2124" class="field font-weight-bold">
-            <%= f.label :専門_学生に対して %><br />
+            <%= f.label :やりたい仕事 %><br />
             <%= f.select :major, {IT: "IT", ビジネス:"ビジネス", スポーツ:"スポーツ",教育:"教育",交通機関:"交通機関"}%>
           </div>
-          <% end  %>
+          <% elsif current_user.type_user==2 %>
+          <div style="color: #1d2124" class="field font-weight-bold">
+            <%= f.label :会社名（フリーランスの方は名前を入力してください） %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          </div>
+          <div style="color: #1d2124" class="field  font-weight-bold">
+            <%= f.label :電話番号 %><br />
+            <%= f.text_field :phone_number, autofocus: true %>
+          </div>
+          <div style="color: #1d2124" class="field  font-weight-bold">
+            <%= f.label :受付時間 %><br />
+            <%= f.text_field :reception_time, autofocus: true %>
+          </div>
+          <div style="color: #1d2124" class="field  font-weight-bold">
+            <%= f.label :ホームページurl %><br />
+            <%= f.text_field :url, autofocus: true %>
+          </div>
+          <% end %>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

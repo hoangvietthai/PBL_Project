@@ -6,6 +6,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   include Common
   # GET /jobs/sign_up
   def new
+    if params[:type_user] == "1"
+      @type = 1
+    @typejob = Typejob.group(:name_job).select("name_job").to_a
+    @options = []
+    @typejob.each{|job|
+      @options.push(job[:name_job])
+    }
+    elsif params[:type_user] == "2"
+      @type = 2
+    end
     super
   end
 
@@ -16,8 +26,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /jobs/edit
   def edit
-    # super
+    @typejob = Typejob.group(:name_job).select("name_job").to_a
+    @options = []
+    @typejob.each{|job|
+      @options.push(job[:name_job])
+    }
     setBackgroundImage
+    super
   end
 
   # PUT /jobs

@@ -1,9 +1,10 @@
-<section class="home-section bg-image" style="background: url(<%= asset_path 'student_top.jpg' %>);" id="home-section">
+<% if @type == 1 %>
+<section class="home-section overlay bg-image" style="background: url(<%= asset_path 'hero_1.jpg' %>);" id="home-section">
     <div class="row align-items-center justify-content-center">
       <div class="col-md-12">
   <div class="mb-5 text-center" style="padding-top: 12%">
-<h2 class="font-weight-bold">登録</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h2 class=" text-white font-weight-bold">学生ユーザ登録</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", jobs: resource %>
 
   <div style="color: #1d2124" class="field font-weight-bold">
@@ -23,42 +24,93 @@
     <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
-    <div style="color: #1d2124" class="field font-weight-bold">
+    <div class="field text-white font-weight-bold">
       <%= f.label :名前 %><br />
       <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
     </div>
-    <div style="color: #1d2124" class="field font-weight-bold">
-      <%= f.label :アドレス %><br />
+    <div class="field text-white font-weight-bold">
+      <%= f.label :住所 %><br />
       <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
     </div>
-    <div style="color: #1d2124"  class="field font-weight-bold">
-      <%= f.label :大学__学生に対して %><br />
+        <div class="field  text-white font-weight-bold">
+          <%= f.label :電話番号 %><br />
+          <%= f.text_field :phone_number, autofocus: true %>
+        </div>
+    <div class="field  text-white font-weight-bold">
+      <%= f.label :大学（専門学校等） %><br />
       <%= f.text_field :university, autofocus: true %>
     </div>
-<!--      <div class="field  text-white font-weight-bold">-->
-<!--        <%#= f.label :専門 %><br />-->
-        <%#= f.text_field :major, autofocus: true %>
-<!--      </div>-->
+      <div class="field text-white font-weight-bold">
+        <%= f.label :やりたい仕事 %><br />
+        <%= f.select :major, @options%>
+      </div>
       <div style="color: #1d2124"  class="field font-weight-bold">
-        <%= f.label :自己PR__学生に対して %><br />
+        <%= f.label :自己PR %><br />
         <%= f.text_area :pr, autofocus: true %>
       </div>
-      <div style="color: #1d2124"  class="field font-weight-bold">
-        <%= f.label :やりたい仕事_学生に対して %><br />
-        <%= f.select :major, {IT: "IT", Business: "Business", Education: "Education"}%>
-      </div>
-    <div style="color: #1d2124"  class="field font-weight-bold">
-      <%= f.label :ユーザー類 %><br />
-      <%= f.select :type_user, {学生:1, 企業:2}%>
-    </div>
-  <div style="color: #1d2124"  class="actions">
+  <div class="actions">
+    <%= f.hidden_field :type_user, :value => 1 %>
     <%= f.submit "登録" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+      <%= link_to "企業、フリーランスのユーザ登録", new_registration_path(resource_name, type_user:2),class: "text-white font-weight-bold" %><br />
   </div>
       </div>
     </div>
 </section>
+<% elsif @type == 2 %>
+  <section class="home-section overlay bg-image" style="background: url(<%= asset_path 'hero_1.jpg' %>);" id="home-section">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-12">
+        <div class="mb-5 text-center" style="padding-top: 12%">
+          <h2 class=" text-white font-weight-bold">企業、フリーランス ユーザ登録</h2>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", jobs: resource %>
+
+            <div class="field text-white font-weight-bold">
+              <%= f.label :メール %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field text-white font-weight-bold">
+              <%= f.label :パスワード %>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> 文字以上)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field text-white font-weight-bold">
+              <%= f.label :パスワード確認 %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+            <div class="field text-white font-weight-bold">
+              <%= f.label :会社名（フリーランスの方は名前を入力してください） %><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+            </div>
+            <div class="field  text-white font-weight-bold">
+              <%= f.label :電話番号 %><br />
+              <%= f.text_field :phone_number, autofocus: true %>
+            </div>
+            <div class="field  text-white font-weight-bold">
+              <%= f.label :受付時間 %><br />
+              <%= f.text_field :reception_time, autofocus: true %>
+            </div>
+            <div class="field  text-white font-weight-bold">
+              <%= f.label :ホームページurl %><br />
+              <%= f.text_field :url, autofocus: true %>
+            </div>
+
+            <div class="field text-white font-weight-bold">
+            </div>
+            <%= f.hidden_field :type_user, :value => 2 %>
+            <div class="actions">
+              <%= f.submit "登録" %>
+            </div>
+          <% end %>
+            <%= link_to "学生のユーザ登録", new_registration_path(resource_name, type_user:1),class: "text-white font-weight-bold" %><br />
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
