@@ -28,7 +28,9 @@ university =["東京大学","筑波大学","東北大学","北海道大学","芝
       major: major,
       password: password,
       email: email_name,
-      type_user:1
+      type_user:1,
+      phone_number: "0001111000",
+
   )
 end
 
@@ -38,7 +40,10 @@ User.create!(
     password: "123456789",
     email: "user43155@gmail.com",
     major:"IT",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 
 User.create!(
@@ -47,7 +52,10 @@ User.create!(
     password: "123456789",
     email: "user125@gmail.com",
     major:"IT",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "グーグル合同会社",
@@ -55,7 +63,8 @@ User.create!(
     password: "88888888",
     email: "alphabet@gmail.com",
     major:"IT",
-    type_user:2
+    type_user:2,
+    phone_number: "00068981000"
 )
 User.create!(
     name: "株式会社Ｒｅｇｒｉｔ　Ｐａｒｔｎｅｒｓ",
@@ -63,7 +72,10 @@ User.create!(
     password: "123456789",
     email: "user-1@gmail.com",
     major:"IT",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "Ｔｗｉｔｔｅｒ　Ｊａｐａｎ株式会社",
@@ -71,7 +83,10 @@ User.create!(
     password: "123456789",
     email: "user55@gmail.com",
     major:"IT",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "ＮＴＴ株式会社",
@@ -79,7 +94,10 @@ User.create!(
     password: "123456789",
     email: "anh2121@gmail.com",
     major:"IT",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "ソニービ株式会社",
@@ -87,7 +105,10 @@ User.create!(
     password: "123456789",
     email: "sony@gmail.com",
     major:"IT",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "株式会社ナガセ　東進ビジネススクール",
@@ -95,7 +116,10 @@ User.create!(
     password: "123456789",
     email: "user1244345@gmail.com",
     major:"ビジネス",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "エスペリアイン 日本橋箱崎",
@@ -103,7 +127,10 @@ User.create!(
     password: "123456789",
     email: "user005@gmail.com",
     major:"ビジネス",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "SBIビジネスサポート株式会社",
@@ -111,7 +138,10 @@ User.create!(
     password: "123456789",
     email: "user006@gmail.com",
     major:"ビジネス",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "ＮＴＴ株式会社",
@@ -119,7 +149,10 @@ User.create!(
     password: "123456789",
     email: "NTT@gmail.com",
     major:"IT",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "アシスト・ジャパン株式会社",
@@ -127,7 +160,10 @@ User.create!(
     password: "123456789",
     email: "user1225@gmail.com",
     major:"ビジネス",
-    type_user:2
+    type_user:2,
+    url:"https://www.google.co.jp/",
+    reception_time: "9:00~19:00",
+    phone_number: "00068981000"
 )
 User.create!(
     name: "Admin",
