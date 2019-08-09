@@ -26,8 +26,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /jobs/edit
   def edit
-    # super
+    @typejob = Typejob.group(:name_job).select("name_job").to_a
+    @options = []
+    @typejob.each{|job|
+      @options.push(job[:name_job])
+    }
     setBackgroundImage
+    super
   end
 
   # PUT /jobs
